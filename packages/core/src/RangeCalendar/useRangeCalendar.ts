@@ -157,6 +157,36 @@ export function useRangeCalendarState(props: UseRangeCalendarProps) {
     return isSameDay(highlightedRange.value.end, date)
   }
 
+  const hasSelectedDate = computed(() => {
+    return !!(props.start.value || props.end.value)
+  })
+
+  const isStartDateDisabled = computed(() => {
+    return !!(props.start.value && props.isDateDisabled(props.start.value))
+  })
+
+  const isEndDateDisabled = computed(() => {
+    return !!(props.end.value && props.isDateDisabled(props.end.value))
+  })
+
+  const isSelectedDisabled = computed(() => {
+    const hasStart = !!props.start.value
+    const hasEnd = !!props.end.value
+    if (!hasStart && !hasEnd)
+      return false
+    if (hasStart && hasEnd)
+      return isStartDateDisabled.value && isEndDateDisabled.value
+    return (hasStart && isStartDateDisabled.value) || (hasEnd && isEndDateDisabled.value)
+  })
+
+  const selectedFocusableDate = computed(() => {
+    if (props.start.value && !isStartDateDisabled.value)
+      return props.start.value
+    if (props.end.value && !isEndDateDisabled.value)
+      return props.end.value
+    return undefined
+  })
+
   return {
     isInvalid,
     isSelected,
@@ -167,5 +197,8 @@ export function useRangeCalendarState(props: UseRangeCalendarProps) {
     isHighlightedStart,
     isHighlightedEnd,
     isDateDisabled: rangeIsDateDisabled,
+    hasSelectedDate,
+    isSelectedDisabled,
+    selectedFocusableDate,
   }
 }

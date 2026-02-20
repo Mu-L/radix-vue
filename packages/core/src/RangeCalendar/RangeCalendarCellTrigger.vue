@@ -94,7 +94,15 @@ const isDisabled = computed(() => rootContext.isDateDisabled(props.day) || (root
 const dayValue = computed(() => props.day.day.toLocaleString(rootContext.locale.value))
 
 const isFocusedDate = computed(() => {
-  return !rootContext.disabled.value && isSameDay(props.day, rootContext.placeholder.value)
+  if (isOutsideView.value || isDisabled.value)
+    return false
+  if (!rootContext.disabled.value && rootContext.isPlaceholderFocusable.value && isSameDay(props.day, rootContext.placeholder.value))
+    return true
+  if (!rootContext.disabled.value && rootContext.selectedFocusableDate.value && !rootContext.isPlaceholderFocusable.value)
+    return isSameDay(props.day, rootContext.selectedFocusableDate.value)
+  if (!rootContext.disabled.value && (!rootContext.hasSelectedDate.value || rootContext.isSelectedDisabled.value) && !rootContext.isPlaceholderFocusable.value)
+    return rootContext.firstFocusableDate.value && isSameDay(props.day, rootContext.firstFocusableDate.value)
+  return false
 })
 
 function changeDate(e: MouseEvent | KeyboardEvent, date: DateValue) {
