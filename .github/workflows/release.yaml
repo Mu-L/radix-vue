@@ -44,5 +44,12 @@ jobs:
       - name: Setup (Install node & pnpm)
         uses: ./.github/actions/setup
 
-      - name: Build Packages & Publish to npm
-        run: pnpm build && pnpm pub:release
+      - name: Update npm (Trusted Publishers requires npm >= 11.5.1)
+        run: npm install -g npm@^11
+
+      - name: Build Packages
+        run: pnpm build
+
+      # Must publish from repo root for provenance to work with OIDC
+      - name: Publish to npm
+        run: npm publish ./packages/core --access public --provenance
