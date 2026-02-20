@@ -44,8 +44,5 @@ jobs:
       - name: Setup (Install node & pnpm)
         uses: ./.github/actions/setup
 
-      - name: Configure npm for OIDC publishing
-        run: npm config delete //registry.npmjs.org/:_authToken
-
       - name: Build Packages & Publish to npm
         run: pnpm build && pnpm pub:release
