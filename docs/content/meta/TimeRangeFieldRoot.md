@@ -1,4 +1,4 @@
-<!-- This file was automatic generated. Do not edit it manually -->
+<!-- This file was automatically generated. Do not edit it manually -->
 
 <PropsTable :data="[
   {
@@ -166,6 +166,6 @@
   {
     'name': 'setFocusedElement',
     'description': '<p>Helper to set the focused element inside the TimeRangeField</p>\n',
-    'type': '(el: HTMLElement) => void'
+    'type': '(el: HTMLElement) =&gt; void'
   }
 ]" />

@@ -142,17 +142,17 @@
 <SlotsTable :data="[
   {
     'name': 'modelValue',
-    'description': '',
+    'description': '<p>The current date range of the field</p>\n',
     'type': 'DateRange | null'
   },
   {
     'name': 'segments',
-    'description': '',
+    'description': '<p>The date field segment contents</p>\n',
     'type': '{ start: { part: SegmentPart; value: string; }[]; end: { part: SegmentPart; value: string; }[]; }'
   },
   {
     'name': 'isInvalid',
-    'description': '',
+    'description': '<p>Value if the input is invalid</p>\n',
     'type': 'boolean'
   }
 ]" />

@@ -7,6 +7,8 @@ name: color-area
 
 # Color Area
 
+<Badge>Alpha</Badge>
+
 <Description>
 A two-dimensional area control that allows users to select color values by interacting with a visual gradient area. Supports multiple color spaces and configurable channels for each axis.
 </Description>
@@ -31,6 +33,12 @@ A two-dimensional area control that allows users to select color values by inter
 Install the component from your command line.
 
 <InstallationTabs value="reka-ui" />
+
+<Callout type="tip">
+
+Looking for a complete color picker? Check out the [Color Picker example](/examples/color-picker) that combines Color Area, Color Slider, Color Field, and Color Swatch components.
+
+</Callout>
 
 ## Anatomy
 

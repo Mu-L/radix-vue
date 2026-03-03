@@ -7,6 +7,8 @@ name: color-swatch-picker
 
 # Color Swatch Picker
 
+<Badge>Alpha</Badge>
+
 <Description>
 A component that allows users to select from a set of predefined colors, often used for themes or branding.
 </Description>
@@ -30,6 +32,12 @@ A component that allows users to select from a set of predefined colors, often u
 Install the component from your command line.
 
 <InstallationTabs value="reka-ui" />
+
+<Callout type="tip">
+
+Looking for a complete color picker? Check out the [Color Picker example](/examples/color-picker) that combines Color Area, Color Slider, Color Field, and Color Swatch components.
+
+</Callout>
 
 ## Anatomy
 

@@ -7,6 +7,8 @@ name: color-field
 
 # Color Field
 
+<Badge>Alpha</Badge>
+
 <Description>
 An input field component for entering color values. Supports hex color input or individual color channel values with keyboard navigation and wheel interaction.
 </Description>
@@ -33,6 +35,12 @@ An input field component for entering color values. Supports hex color input or 
 Install the component from your command line.
 
 <InstallationTabs value="reka-ui" />
+
+<Callout type="tip">
+
+Looking for a complete color picker? Check out the [Color Picker example](/examples/color-picker) that combines Color Area, Color Slider, Color Field, and Color Swatch components.
+
+</Callout>
 
 ## Anatomy
 

@@ -6,7 +6,7 @@ import {
 } from 'reka-ui'
 import { ref } from 'vue'
 
-const color = ref('#ff0000')
+const color = ref('#56d799')
 </script>
 
 <template>

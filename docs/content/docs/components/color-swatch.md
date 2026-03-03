@@ -7,6 +7,8 @@ name: color-swatch
 
 # Color Swatch
 
+<Badge>Alpha</Badge>
+
 <Description>
 Displays a color swatch, which can be used to represent colors in a UI.
 </Description>
@@ -28,6 +30,12 @@ Displays a color swatch, which can be used to represent colors in a UI.
 Install the component from your command line.
 
 <InstallationTabs value="reka-ui" />
+
+<Callout type="tip">
+
+Looking for a complete color picker? Check out the [Color Picker example](/examples/color-picker) that combines Color Area, Color Slider, Color Field, and Color Swatch components.
+
+</Callout>
 
 ## Anatomy
 

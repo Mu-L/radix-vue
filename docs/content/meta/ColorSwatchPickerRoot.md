@@ -18,8 +18,7 @@
     'name': 'defaultValue',
     'description': '<p>The value of the listbox when initially rendered. Use when you do not need to control the state of the Listbox</p>\n',
     'type': 'string | string[]',
-    'required': false,
-    'default': '\'\''
+    'required': false
   },
   {
     'name': 'dir',
