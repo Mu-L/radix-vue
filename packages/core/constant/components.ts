@@ -458,6 +458,11 @@ export const components = {
     'TimeFieldRoot',
   ] as const,
 
+  timeRangeField: [
+    'TimeRangeFieldRoot',
+    'TimeRangeFieldInput',
+  ] as const,
+
   toast: [
     'ToastProvider',
     'ToastRoot',

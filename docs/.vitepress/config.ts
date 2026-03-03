@@ -207,6 +207,10 @@ export default defineConfig({
                 link: '/docs/components/time-field',
               },
               {
+                text: `Time Range Field ${BadgeHTML('Alpha', true)}`,
+                link: '/docs/components/time-range-field',
+              },
+              {
                 text: `Month Picker ${BadgeHTML('Alpha', true)}`,
                 link: '/docs/components/month-picker',
               },
