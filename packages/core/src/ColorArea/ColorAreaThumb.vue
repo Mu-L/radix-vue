@@ -67,6 +67,7 @@ const ariaValueText = computed(() => {
       left: `${xPercent}%`,
       top: `${100 - yPercent}%`,
       transform: 'translate(-50%, -50%)',
+      touchAction: 'none',
     }"
   >
     <slot />
