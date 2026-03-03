@@ -88,7 +88,7 @@ import Chip from './Chip.vue'
         <ColorFieldDemo />
       </div>
 
-      <div class="absolute top-[24rem] md:top-[4rem] right-[32rem] md:right-[30rem] text-stone-700 text-sm">
+      <div class="absolute top-[24rem] md:top-[6rem] right-[32rem] md:right-[38rem] text-stone-700 text-sm">
         <TimeRangeFieldDemo />
       </div>
 
