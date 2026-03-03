@@ -41,6 +41,7 @@ export interface ColorAreaRootContext {
   disabled: Ref<boolean>
   xRange: ComputedRef<{ min: number, max: number, step: number }>
   yRange: ComputedRef<{ min: number, max: number, step: number }>
+  thumbRef: Ref<HTMLElement | undefined>
   updateValues: (x: number, y: number) => void
   commitValues: () => void
 }
@@ -207,6 +208,8 @@ function commitValues() {
   emits('changeEnd', colorToString(color.value, 'hex'))
 }
 
+const thumbRef = ref<HTMLElement>()
+
 provideColorAreaRootContext({
   color: computed(() => color.value) as Ref<Color>,
   xValue,
@@ -217,6 +220,7 @@ provideColorAreaRootContext({
   disabled,
   xRange,
   yRange,
+  thumbRef,
   updateValues,
   commitValues,
 })

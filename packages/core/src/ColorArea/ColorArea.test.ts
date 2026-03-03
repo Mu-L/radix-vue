@@ -1,8 +1,13 @@
 import type { VueWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { axe } from 'vitest-axe'
 import ColorArea from './story/_ColorArea.vue'
+
+// jsdom doesn't support pointer capture methods
+window.HTMLElement.prototype.setPointerCapture = vi.fn()
+window.HTMLElement.prototype.releasePointerCapture = vi.fn()
+window.HTMLElement.prototype.hasPointerCapture = vi.fn()
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -66,6 +71,63 @@ describe('colorArea accessibility', () => {
 
   it('thumb aria-label names both channels', () => {
     expect(wrapper.find('[role="slider"]').attributes('aria-label')).toBe('Saturation, Lightness')
+  })
+})
+
+// ─── Pointer interaction ─────────────────────────────────────────────────────
+
+describe('colorArea pointer interaction', () => {
+  it('thumb gains focus when dragging starts', async () => {
+    const wrapper = mount(ColorArea, {
+      props: {
+        defaultValue: '#bf40bf',
+        colorSpace: 'hsl',
+        xChannel: 'saturation',
+        yChannel: 'lightness',
+      },
+      attachTo: document.body,
+    })
+
+    const area = wrapper.find('[role="application"]')
+    const thumb = wrapper.find('[role="slider"]')
+
+    expect(document.activeElement).not.toBe(thumb.element)
+
+    await area.trigger('pointerdown', {
+      clientX: 100,
+      clientY: 100,
+      pointerId: 1,
+    })
+
+    expect(document.activeElement).toBe(thumb.element)
+
+    wrapper.unmount()
+  })
+
+  it('thumb does not gain focus when disabled', async () => {
+    const wrapper = mount(ColorArea, {
+      props: {
+        defaultValue: '#bf40bf',
+        colorSpace: 'hsl',
+        xChannel: 'saturation',
+        yChannel: 'lightness',
+        disabled: true,
+      },
+      attachTo: document.body,
+    })
+
+    const area = wrapper.find('[role="application"]')
+    const thumb = wrapper.find('[role="slider"]')
+
+    await area.trigger('pointerdown', {
+      clientX: 100,
+      clientY: 100,
+      pointerId: 1,
+    })
+
+    expect(document.activeElement).not.toBe(thumb.element)
+
+    wrapper.unmount()
   })
 })
 

@@ -5,7 +5,7 @@ export interface ColorAreaThumbProps extends PrimitiveProps {}
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { Primitive, usePrimitiveElement } from '@/Primitive'
 import { getChannelName } from '@/shared/color'
 import { injectColorAreaRootContext } from './ColorAreaRoot.vue'
@@ -16,7 +16,11 @@ const props = withDefaults(defineProps<ColorAreaThumbProps>(), {
 })
 
 const rootContext = injectColorAreaRootContext()
-const { primitiveElement } = usePrimitiveElement()
+const { primitiveElement, currentElement } = usePrimitiveElement()
+
+onMounted(() => {
+  rootContext.thumbRef.value = currentElement.value
+})
 
 const xPercent = computed(() =>
   convertValueToPercentage(

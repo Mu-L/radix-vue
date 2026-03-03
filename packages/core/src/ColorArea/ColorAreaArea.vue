@@ -48,6 +48,9 @@ function handlePointerDown(event: PointerEvent) {
   isDragging.value = true
   const { x, y } = getValuesFromPointer(event)
   rootContext.updateValues(x, y)
+
+  // Focus the thumb when dragging starts
+  rootContext.thumbRef.value?.focus()
 }
 
 function handlePointerMove(event: PointerEvent) {
