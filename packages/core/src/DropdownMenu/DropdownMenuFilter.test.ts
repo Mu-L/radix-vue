@@ -87,7 +87,7 @@ describe('given DropdownMenu with Filter', () => {
       await nextTick()
 
       const items = document.querySelectorAll('[role="menuitem"]')
-      const lastItem = items[items.length - 1]
+      const lastItem = items.at(-1)
       expect(lastItem?.getAttribute('data-highlighted')).toBe('')
     })
 
