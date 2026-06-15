@@ -11,7 +11,6 @@ const rating = ref(3)
   <RatingRoot
     v-slot="{ items }"
     v-model="rating"
-    hoverable
     class="RatingRoot"
   >
     <RatingItem
@@ -29,7 +28,7 @@ const rating = ref(3)
         class="RatingItemIndicator"
       >
         <Icon
-          icon="radix-icons:star"
+          icon="material-symbols:star-rounded"
           class="RatingStar"
         />
       </RatingItemIndicator>

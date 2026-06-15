@@ -10,7 +10,6 @@ const rating = ref(3)
   <RatingRoot
     v-slot="{ items }"
     v-model="rating"
-    hoverable
     class="flex gap-1"
   >
     <RatingItem
@@ -18,18 +17,18 @@ const rating = ref(3)
       :key="item"
       v-slot="{ steps }"
       :item="item"
-      class="relative size-7 cursor-pointer"
+      class="relative size-8 cursor-pointer transition-transform duration-150 ease-out hover:scale-110"
     >
       <RatingItemIndicator
         v-for="step in steps"
         :key="step"
         :step="step"
         :aria-label="`Rate ${step}`"
-        class="absolute overflow-hidden text-stone-300 data-[state=active]:text-yellow-400 w-[var(--reka-rating-item-step-width)] opacity-[var(--reka-rating-item-step-opacity)] z-[var(--reka-rating-item-step-z-index)] focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded"
+        class="absolute overflow-hidden text-stone-200 transition-colors duration-150 data-[state=active]:text-[hsl(142.1_70.6%_45.3%)] data-[state=active]:drop-shadow-[0_1px_4px_hsl(142.1_70.6%_45.3%/0.5)] w-[var(--reka-rating-item-step-width)] opacity-[var(--reka-rating-item-step-opacity)] z-[var(--reka-rating-item-step-z-index)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(142.1_70.6%_45.3%)] rounded"
       >
         <Icon
-          icon="radix-icons:star"
-          class="size-7"
+          icon="material-symbols:star-rounded"
+          class="size-8"
         />
       </RatingItemIndicator>
     </RatingItem>
