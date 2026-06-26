@@ -244,8 +244,7 @@ function handleKeyDown(event: KeyboardEvent) {
   const collectionItems = rovingFocusGroupRef.value?.getItems() ?? []
 
   if (isKeyDownInside) {
-    // menus should not be navigated using tab key so we prevent it
-    if (event.key === 'Tab')
+    if (event.key === 'Tab' && rootContext.modal.value)
       event.preventDefault()
     if (!isModifierKey && isCharacterKey && !isKeyDownInTextField)
       handleTypeaheadSearch(event.key, collectionItems)
